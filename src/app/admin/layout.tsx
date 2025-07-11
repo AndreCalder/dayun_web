@@ -61,9 +61,9 @@ export default function RootLayout({
         sidebarOpen={sidebar.sidebarOpen}
         toggleSidebar={toggleSidebar}
       />
-      <main className="flex w-full h-lvh flex-col min-h-screen sm:pl-[300px]">
+      <main className="flex w-full h-svh flex-col min-h-screen sm:pl-[300px]">
         <Header toggleSidebar={toggleSidebar} />
-        <div className="flex-1 px-2 sm:px-10 bg-gray-100">
+        <div className="flex-1 px-2 sm:px-10 bg-gray-100 pb-5">
           {children}
         </div>
       </main>

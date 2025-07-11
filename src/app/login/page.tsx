@@ -41,7 +41,6 @@ function Login() {
 
   async function onSubmit(data: z.infer<typeof loginSchema>) {
     setLoading(true);
-    console.log(data);
     await axiosInstance.post("/auth/login", data).then((res) => {
       toast.success("Inicio de sesión exitoso");
       saveAccessToken(res.data.access_token);
@@ -56,7 +55,7 @@ function Login() {
   }
 
   return (
-    <div className="w-screen h-lvh flex justify-center items-center bg-gray-100">
+    <div className="w-screen h-svh flex justify-center items-center bg-gray-100">
       <Card className="w-96">
         <CardHeader>
           <h1 className="text-2xl font-bold text-center">Login</h1>
