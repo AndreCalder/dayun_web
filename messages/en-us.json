@@ -29,7 +29,8 @@
         "characterstics": "PRODUCT CHARACTERISTICS:",
         "measurements": "MEASUREMENTS:",
         "material": "MATERIAL:",
-        "technique": "TECHNIQUE:"
+        "technique": "TECHNIQUE:",
+        "swipe": "SWIPE"
       },
       "Projects": {
         "title": "PROJECTS",

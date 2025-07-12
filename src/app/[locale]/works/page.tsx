@@ -244,6 +244,7 @@ function Works() {
                 images={lightboxImages}
                 currentIndex={lightboxIndex}
                 onNavigate={handleLightboxNavigate}
+                swipeText={t("swipe")}
             />
         </div>
     );
