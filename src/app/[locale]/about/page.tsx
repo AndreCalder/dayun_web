@@ -87,6 +87,7 @@ function About() {
                 images={aboutImages.map((img) => img.img_url)}
                 currentIndex={currentImageIndex}
                 onNavigate={handleNavigate}
+                swipeText={t("swipe")}
             />
         </div>
     );

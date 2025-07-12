@@ -6,14 +6,15 @@
         "catalog": "CATÁLOGO",
         "projects": "PROYECTOS",
         "works": "OBRAS",
-        "swipe": "Desliza"
+        "swipe": "SWIPE"
       },
       "About": {
         "title": "NOSOTROS",
         "t1": "Hola, mi nombre es Daniela aunque me firmo como Dayun.\nSoy una artista y ilustradora basada en la Ciudad de México.\nEstoy obsesionada con la intuición, la libertad y el placer.\nEspero que mi trabajo te invite a vivir tu más libre y alegre yo.",
         "t2": "Comunicación Visual - Centro de Diseño, Cine y Televisión.\nArt on the farm - Cow House Studios\nBatik and textile studies - Banaras Hindu University\nAzul Añil, Niltepec - ANART Certificación profesional y artesanal en textiles",
         "t3": "DESCARGA EL CATÁLOGO COMPLETO DE MIS ILUSTRACIONES",
-        "here": "AQUÍ"
+        "here": "AQUÍ",
+        "swipe": "SWIPE"
       },
       "Catalog": {
         "title": "CATÁLOGO",
@@ -33,6 +34,6 @@
       "Projects": {
         "title": "PROYECTOS",
         "gallery": "GALERÍA",
-        "swipe": "Desliza"
+        "swipe": "SWIPE"
       }
 }
