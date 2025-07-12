@@ -177,8 +177,8 @@ function AboutImages() {
                 </DialogFooter>
             </Modal>
 
-            <div className="w-full py-4 flex items-center justify-between">
-                <div>
+            <div className="w-full py-4 flex items-center justify-between flex-wrap">
+                <div className="w-full lg:flex-1">
                     <h1 className="text-lg font-semibold text-left">
                         Imágenes About
                     </h1>
@@ -188,9 +188,11 @@ function AboutImages() {
                         eliminarlas.
                     </p>
                 </div>
-                <Button onClick={() => setModalOpen(true)}>
-                    Agregar Imagen
-                </Button>
+                <div className="w-full lg:flex-1 flex justify-center lg:justify-end items-center py-2 lg:py-0">
+                    <Button onClick={() => setModalOpen(true)}>
+                        Agregar Imagen
+                    </Button>
+                </div>
             </div>
             <CardComponent>
                 {aboutImages.length === 0 ? (

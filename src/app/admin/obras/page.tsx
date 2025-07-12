@@ -473,8 +473,8 @@ function Obras() {
                 </DialogFooter>
             </Modal>
 
-            <div className="w-full py-4 flex items-center justify-between">
-                <div>
+            <div className="w-full py-4 flex items-center justify-between flex-wrap">
+                <div className="w-full lg:flex-1">
                     <h1 className="text-lg font-semibold text-left">Obras</h1>
                     <p className="text-sm text-muted-foreground mt-1">
                         Gestiona tu colección de obras. Puedes agregar nuevas
@@ -482,7 +482,11 @@ function Obras() {
                         las que ya no necesites.
                     </p>
                 </div>
-                <Button onClick={() => setModalOpen(true)}>Agregar Obra</Button>
+                <div className="w-full lg:flex-1 flex justify-center lg:justify-end items-center py-2 lg:py-0">
+                    <Button onClick={() => setModalOpen(true)}>
+                        Agregar Obra
+                    </Button>
+                </div>
             </div>
             <CardComponent>
                 {works.length === 0 ? (

@@ -67,23 +67,25 @@ function ImgCarousel({
 
     const finishLoading = () => {
         if (loading) {
-            setLoading(false);
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
         }
     };
 
     useEffect(() => {
         setShowSwipeText(true);
-            const timer = setTimeout(() => {
-                setShowSwipeText(false);
-            }, 2500);
+        const timer = setTimeout(() => {
+            setShowSwipeText(false);
+        }, 6000);
 
-            return () => clearTimeout(timer);
+        return () => clearTimeout(timer);
     }, []);
 
     return (
         <>
             {loading && (
-                <div className="h-full w-full flex justify-center items-center z-50 absolute top-0 left-0 right-0 bottom-0">
+                <div className="h-full w-full flex justify-center items-center z-50 absolute top-0 left-0 right-0 bottom-0 bg-white">
                     <Image
                         src="/Tetera.gif" // Relative path to the gif in your public folder
                         alt="Loading GIF"
@@ -122,13 +124,17 @@ function ImgCarousel({
                         />
                     </div>
                 )}
-                {showSwipeText && (
+                {!loading && (
                     <div className="absolute lg:hidden bottom-12 left-0 right-0 flex justify-center items-center">
-                        <div className="flex gap-x-2 items-center w-fit animate-pulse-scale">
-                            <ArrowLeft className="h-4 w-4 text-white" />
-                            <p className="text-white text-sm">{swipeText}</p>
-                            <ArrowRight className="h-4 w-4 text-white" />
-                        </div>
+                        {showSwipeText && (
+                            <div className="flex gap-x-2 items-center w-fit animate-pulse-scale">
+                                <ArrowLeft className="h-4 w-4 text-white" />
+                                <p className="text-white text-sm">
+                                    {swipeText}
+                                </p>
+                                <ArrowRight className="h-4 w-4 text-white" />
+                            </div>
+                        )}
                     </div>
                 )}
                 <ArrowRight

@@ -70,7 +70,11 @@ function Covers() {
     const getCoversData = async () => {
         try {
             let coversRes = await getCovers();
-            if (coversRes.status === 200 && coversRes.data && coversRes.data.covers) {
+            if (
+                coversRes.status === 200 &&
+                coversRes.data &&
+                coversRes.data.covers
+            ) {
                 setCovers(coversRes.data.covers);
             } else {
                 console.warn("No covers data found in response");
@@ -134,17 +138,21 @@ function Covers() {
                     </Button>
                 </DialogFooter>
             </Modal>
-            <div className="w-full py-4 flex items-center justify-between">
-                <div>
-                    <h1 className="text-lg font-semibold text-left">Portadas</h1>
+            <div className="w-full py-4 flex items-center justify-between flex-wrap">
+                <div className="w-full lg:flex-1">
+                    <h1 className="text-lg font-semibold text-left">
+                        Portadas
+                    </h1>
                     <p className="text-sm text-muted-foreground mt-1 pr-5">
                         Gestiona las portadas de tu sitio. Puedes agregar nuevas
                         portadas o eliminar las que ya no necesites.
                     </p>
                 </div>
-                <Button onClick={() => setModalOpen(true)}>
-                    Agregar Portada
-                </Button>
+                <div className="w-full lg:flex-1 flex justify-center lg:justify-end items-center py-2 lg:py-0">
+                    <Button onClick={() => setModalOpen(true)}>
+                        Agregar Portada
+                    </Button>
+                </div>
             </div>
             <CardComponent>
                 {covers.length === 0 ? (
