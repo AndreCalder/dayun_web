@@ -1,35 +1,167 @@
 "use client";
-import Link from 'next/link';
-import React from 'react'
-import { Locale, usePathname, useRouter } from '@/i18n/routing';
-import { useTranslations } from 'next-intl';
+import React, { useEffect, useState } from "react";
+import { Locale, usePathname, useRouter, Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import { ProjectType } from "@/lib/definitions";
+import { getProjects } from "../api";
+import { ChevronUp, ChevronDown } from "lucide-react";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+    DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 
 function BottomNav() {
-
-    const t = useTranslations('HomePage');
+    const t = useTranslations("HomePage");
     const pathname = usePathname();
-    const router = useRouter();
+    const [projects, setProjects] = useState<ProjectType[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const changeLocale = (
-        locale: string,
-    ) => {
-        const newLocale = locale as Locale;
-
-        // ...if the user chose Arabic ("ar-eg"),
-        // router.replace() will prefix the pathname
-        // with this `newLocale`, effectively changing
-        // languages by navigating to `/ar-eg/about`.
-        router.replace(pathname, { locale: newLocale });
+    const fetchProjects = async () => {
+        try {
+            const response = await getProjects();
+            if (response.status === 200 && response.data.projects) {
+                setProjects(response.data.projects);
+            }
+        } catch (error) {
+            console.error("Error fetching projects:", error);
+        } finally {
+            setLoading(false);
+        }
     };
 
+    useEffect(() => {
+        fetchProjects();
+    }, []);
+
     return (
-        <div className="w-screen hidden fixed bottom-0 py-5 md:grid grid-cols-3">
-            <Link href="/"><p className="text-2xl text-center">{t("shop")}</p></Link>
-            <Link href="/"><p className="text-2xl text-center">{t("catalog")}</p></Link>
-            <Link href="/"><p className="text-2xl text-center">{t("contact")}</p></Link>
+        <div className="w-screen hidden fixed bottom-0 py-5 lg:grid grid-cols-3 ">
+            <div className="hidden col-span-1 lg:flex justify-center">
+                <DropdownMenu onOpenChange={setDropdownOpen}>
+                    <DropdownMenuTrigger asChild>
+                        <p
+                            className={`text-2xl cursor-pointer text-center hover:font-bold flex items-center justify-center gap-2 ${
+                                pathname === "/" || pathname === "/catalog"
+                                    ? "text-white"
+                                    : "text-black"
+                            }`}
+                        >
+                            {t("projects")}
+                            {dropdownOpen ? (
+                                <ChevronDown
+                                    size={20}
+                                    className={`${
+                                        pathname === "/" ||
+                                        pathname === "/catalog"
+                                            ? "text-white"
+                                            : "text-black"
+                                    }`}
+                                />
+                            ) : (
+                                <ChevronUp
+                                    size={20}
+                                    className={`${
+                                        pathname === "/" ||
+                                        pathname === "/catalog"
+                                            ? "text-white"
+                                            : "text-black"
+                                    }`}
+                                />
+                            )}
+                        </p>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                        side="top"
+                        align="start"
+                        className="mb-2 max-h-80 overflow-y-auto bg-transparent border-none shadow-none"
+                    >
+                        {loading ? (
+                            <DropdownMenuItem disabled>
+                                <span className="text-sm text-gray-500">
+                                    ...
+                                </span>
+                            </DropdownMenuItem>
+                        ) : projects.length > 0 ? (
+                            projects.map((project) => (
+                                <DropdownMenuItem
+                                    key={project._id?.$oid}
+                                    asChild
+                                    className="bg-transparent hover:bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent"
+                                >
+                                    <Link
+                                        href={`/projects/${project._id?.$oid}`}
+                                        className={`w-full cursor-pointer px-2 py-1 ${
+                                            pathname === "/" ||
+                                            pathname === "/catalog"
+                                                ? "text-white hover:text-white"
+                                                : "text-black hover:text-black"
+                                        } hover:bg-transparent focus:bg-transparent`}
+                                    >
+                                        <span className="text-lg truncate">
+                                            {project.title}
+                                        </span>
+                                    </Link>
+                                </DropdownMenuItem>
+                            ))
+                        ) : (
+                            <DropdownMenuItem disabled>
+                                <span className="text-sm text-gray-500">
+                                    No hay proyectos disponibles
+                                </span>
+                            </DropdownMenuItem>
+                        )}
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
+            <div className="flex w-full items-center justify-center">
+                <Link href="/works">
+                    <p
+                        className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold ${
+                            pathname === "/" || pathname === "/catalog"
+                                ? "text-white"
+                                : "text-black"
+                        }`}
+                    >
+                        {t("works")}
+                    </p>
+                </Link>
+                <p
+                    className={`mx-3 hidden lg:block text-2xl cursor-pointer hover:font-bold ${
+                        pathname === "/" || pathname === "/catalog"
+                            ? "text-white"
+                            : "text-black"
+                    }`}
+                >
+                    |
+                </p>
+                <Link href="/catalog">
+                    <p
+                        className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold ${
+                            pathname === "/" || pathname === "/catalog"
+                                ? "text-white"
+                                : "text-black"
+                        }`}
+                    >
+                        {t("catalog")}
+                    </p>
+                </Link>
+            </div>
+            <Link href="/contact">
+                <p
+                    className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold ${
+                        pathname === "/" || pathname === "/catalog"
+                            ? "text-white"
+                            : "text-black"
+                    }`}
+                >
+                    {t("contact")}
+                </p>
+            </Link>
         </div>
-    )
+    );
 }
 
-export default BottomNav
-
+export default BottomNav;

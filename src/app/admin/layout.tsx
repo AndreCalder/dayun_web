@@ -63,7 +63,7 @@ export default function RootLayout({
       />
       <main className="flex w-full h-svh flex-col min-h-screen sm:pl-[300px]">
         <Header toggleSidebar={toggleSidebar} />
-        <div className="flex-1 px-2 sm:px-10 bg-gray-100 pb-5">
+        <div className="flex-1 px-2 sm:px-10 bg-gray-100 pb-5 overflow-y-scroll">
           {children}
         </div>
       </main>

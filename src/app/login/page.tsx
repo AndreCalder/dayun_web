@@ -46,7 +46,7 @@ function Login() {
       saveAccessToken(res.data.access_token);
 
       delay(500).then(() => {
-        router.replace(`/admin/home`);
+        router.replace(`/admin/covers`);
       });
     }).catch((err) => {
       setLoading(false);

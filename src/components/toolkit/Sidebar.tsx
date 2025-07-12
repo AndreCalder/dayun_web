@@ -41,20 +41,25 @@ const Sidebar: React.FC<sidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
     {
       items: [
         {
-          link: `/admin/home`,
-          text: "Inicio",
-          icon: <LayoutPanelLeft className="h-5 w-5" />,
+          link: `/admin/covers`,
+          text: "Portadas Inicio",
+          icon: <ImageIcon className="h-5 w-5" />,
         },
         {
-          link: `/admin/merch`,
-          text: "Merch",
-          icon: <ShoppingBag className="h-5 w-5" />,
+          link: `/admin/about-images`,
+          text: "Imágenes About",
+          icon: <ImageIcon className="h-5 w-5" />,
         },
         {
           link: `/admin/obras`,
           text: "Obras",
           icon: <ImageIcon className="h-5 w-5" />,
-        }
+        },
+        {
+          link: `/admin/projects`,
+          text: "Proyectos",
+          icon: <BookCheck className="h-5 w-5" />,
+        },
       ],
     },
   ];
@@ -78,7 +83,7 @@ const Sidebar: React.FC<sidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
 
         <CommandList className="align-baseline justify-between p-0">
           {menulist.map((menu: any, key: number) => (
-            <CommandGroup heading="Navegación" key={key}>
+            <CommandGroup heading="" key={key}>
               {menu.items.map((menuItem: MenuItemType, key: number) => (
                 <React.Fragment key={key}>
                   <Link

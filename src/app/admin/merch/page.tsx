@@ -50,7 +50,9 @@ function Merch() {
             toast.error("Favor de llenar todos los datos");
         } else {
             let imageUploadPromises = imageFiles.map(async (file) => {
-                return uploadImage(file);
+                const formData = new FormData();
+                formData.append('file', file);
+                return uploadImage(formData);
             }
             );
 

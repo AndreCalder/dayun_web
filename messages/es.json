@@ -3,12 +3,36 @@
         "shop": "TIENDA",
         "about": "NOSOTROS",
         "contact": "CONTACTO",
-        "catalog": "CATÁLOGO"
+        "catalog": "CATÁLOGO",
+        "projects": "PROYECTOS",
+        "works": "OBRAS",
+        "swipe": "Desliza"
       },
-
       "About": {
-        "title": "ABOUT",
-        "t1": "Hello, my name is Daniela although I sign as Dayun.\nI’m an artist and illustrator based in Mexico City.\nI’m obsessed with intuition, freedom and pleasure.\nI hope my work will invite you to live your most free and joyful self.",
-        "t2": "Comunicación Visual - Centro de Diseño, Cine y Televisión.\nArt on the farm - Cow House Studios\nBatik and textile studies - Banaras Hindu University\nAzul Añil, Niltepec - ANART Certificación profesional y artesanal en textiles"
+        "title": "NOSOTROS",
+        "t1": "Hola, mi nombre es Daniela aunque me firmo como Dayun.\nSoy una artista y ilustradora basada en la Ciudad de México.\nEstoy obsesionada con la intuición, la libertad y el placer.\nEspero que mi trabajo te invite a vivir tu más libre y alegre yo.",
+        "t2": "Comunicación Visual - Centro de Diseño, Cine y Televisión.\nArt on the farm - Cow House Studios\nBatik and textile studies - Banaras Hindu University\nAzul Añil, Niltepec - ANART Certificación profesional y artesanal en textiles",
+        "t3": "DESCARGA EL CATÁLOGO COMPLETO DE MIS ILUSTRACIONES",
+        "here": "AQUÍ"
+      },
+      "Catalog": {
+        "title": "CATÁLOGO",
+        "t1": "DESCARGA EL CATÁLOGO COMPLETO DE MIS PINTURAS",
+        "here": "AQUÍ"
+      },
+      "Contact": {
+        "title": "CONTACTO",
+        "t": "Si estás interesado en una obra, colaboración o simplemente quieres mantenerte en contacto, envíame un correo electrónico."
+      },
+      "Works": {
+        "characterstics": "CARACTERÍSTICAS DEL PRODUCTO:",
+        "measurements": "MEDIDAS:",
+        "material": "MATERIAL:",
+        "technique": "TÉCNICA:"
+      },
+      "Projects": {
+        "title": "PROYECTOS",
+        "gallery": "GALERÍA",
+        "swipe": "Desliza"
       }
 }

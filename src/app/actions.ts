@@ -1,21 +1,30 @@
+"use server";
+
 import { createClient } from "@supabase/supabase-js";
+import axios from "axios";
 
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
-);
+export async function uploadImage(formData: FormData) {
+  const supabase = createClient(
+    process.env.SUPABASE_URL || "",
+    process.env.SUPABASE_ANON_KEY || ""
+  );
 
-export async function uploadImage(file: File) {
-    
-    const { data, error } = await supabase.storage
-        .from("dayun")
-        .upload(`${file.name.replace(/[^a-zA-Z ]/g, "")}_${Date.now()}`, file);
-    if (error) {
-        // Handle error
-    } else if (data) {
-        let { path } = data;
-        return `https://oupaswmsirlkbgllmlqo.supabase.co/storage/v1/object/public/dayun/${encodeURI(
-            path
-        )}`;
-    }
+  const file = formData.get('file') as File;
+  
+  if (!file) {
+    return "";
+  }
+
+  const bucket = "dayun";
+  const { data, error } = await supabase.storage
+    .from(bucket)
+    .upload(`${file.name.replace(/[^a-zA-Z ]/g, "")}_${Date.now()}`, file);
+  if (error) {
+    return "";
+  } else if (data) {
+    let { path } = data;
+    return `${
+      process.env.SUPABASE_URL
+    }/storage/v1/object/public/${bucket}/${encodeURI(path)}`;
+  }
 }
