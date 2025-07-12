@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Locale, usePathname, useRouter, Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 
@@ -9,6 +9,7 @@ function TopNav() {
     const t = useTranslations("HomePage");
     const pathname = usePathname();
     const router = useRouter();
+    const currentLocale = useLocale();
 
     const changeLocale = (locale: string) => {
         const newLocale = locale as Locale;
@@ -20,10 +21,12 @@ function TopNav() {
             <div className="w-screen z-10 fixed top-0 py-5 hidden sm:grid grid-cols-3">
                 <Link href="/about">
                     <p
-                        className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold ${
+                        className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold transition-all duration-300 ${
                             pathname === "/" || pathname === "/catalog"
                                 ? "text-white"
                                 : "text-black"
+                        } ${
+                            pathname === "/about" ? "font-extrabold scale-105" : ""
                         }`}
                     >
                         {t("about")}
@@ -54,10 +57,12 @@ function TopNav() {
                 </div>
                 <div className="flex justify-center">
                     <p
-                        className={`hidden lg:block cursor-pointer hover:font-bold ${
+                        className={`hidden lg:block cursor-pointer hover:font-bold transition-all duration-300 ${
                             pathname === "/" || pathname === "/catalog"
                                 ? "text-white"
                                 : "text-black"
+                        } ${
+                            currentLocale === "en-us" ? "font-extrabold scale-105" : ""
                         }`}
                         onClick={() => changeLocale("en-us")}
                     >
@@ -73,10 +78,12 @@ function TopNav() {
                         |
                     </p>
                     <p
-                        className={`hidden lg:block cursor-pointer hover:font-bold ${
+                        className={`hidden lg:block cursor-pointer hover:font-bold transition-all duration-300 ${
                             pathname === "/" || pathname === "/catalog"
                                 ? "text-white"
                                 : "text-black"
+                        } ${
+                            currentLocale === "es" ? "font-extrabold scale-105" : ""
                         }`}
                         onClick={() => changeLocale("es")}
                     >

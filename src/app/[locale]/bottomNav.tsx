@@ -43,10 +43,12 @@ function BottomNav() {
                 <DropdownMenu onOpenChange={setDropdownOpen}>
                     <DropdownMenuTrigger asChild>
                         <p
-                            className={`text-2xl cursor-pointer text-center hover:font-bold flex items-center justify-center gap-2 ${
+                            className={`text-2xl cursor-pointer text-center hover:font-bold flex items-center justify-center gap-2 transition-all duration-300 ${
                                 pathname === "/" || pathname === "/catalog"
                                     ? "text-white"
                                     : "text-black"
+                            } ${
+                                pathname.startsWith("/projects") ? "font-extrabold scale-105" : ""
                             }`}
                         >
                             {t("projects")}
@@ -119,10 +121,12 @@ function BottomNav() {
             <div className="flex w-full items-center justify-center">
                 <Link href="/works">
                     <p
-                        className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold ${
+                        className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold transition-all duration-300 ${
                             pathname === "/" || pathname === "/catalog"
                                 ? "text-white"
                                 : "text-black"
+                        } ${
+                            pathname === "/works" ? "font-extrabold scale-105" : ""
                         }`}
                     >
                         {t("works")}
@@ -139,10 +143,12 @@ function BottomNav() {
                 </p>
                 <Link href="/catalog">
                     <p
-                        className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold ${
+                        className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold transition-all duration-300 ${
                             pathname === "/" || pathname === "/catalog"
                                 ? "text-white"
                                 : "text-black"
+                        } ${
+                            pathname === "/catalog" ? "font-extrabold scale-105" : ""
                         }`}
                     >
                         {t("catalog")}
@@ -151,10 +157,12 @@ function BottomNav() {
             </div>
             <Link href="/contact">
                 <p
-                    className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold ${
+                    className={`hidden lg:block text-2xl cursor-pointer text-center hover:font-bold transition-all duration-300 ${
                         pathname === "/" || pathname === "/catalog"
                             ? "text-white"
                             : "text-black"
+                    } ${
+                        pathname === "/contact" ? "font-extrabold scale-105" : ""
                     }`}
                 >
                     {t("contact")}
