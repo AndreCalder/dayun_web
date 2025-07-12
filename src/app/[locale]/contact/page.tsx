@@ -38,8 +38,8 @@ function Contact() {
             <Image
                 src="/Dayun_Face.png"
                 alt="About"
-                width={550}
-                height={550}
+                width={500}
+                height={500}
                 className="hidden lg:block lg:absolute bottom-0 right-[17%]"
             />
             <Image
