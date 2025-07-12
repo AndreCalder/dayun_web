@@ -6,6 +6,7 @@ import { getWorks } from "@/app/api";
 import { WorkType } from "@/lib/definitions";
 import { Lightbox } from "@/components/ui/lightbox";
 import { useTranslations } from "next-intl";
+import { X } from "lucide-react";
 
 function Works() {
     const t = useTranslations("Works");
@@ -115,15 +116,13 @@ function Works() {
                         />
                         <button
                             onClick={handleModalClose}
-                            className="fixed top-6 right-8 z-50 p-3 text-black hover:bg-black/10 rounded-full transition-colors"
+                            className="fixed top-6 right-8 z-50 p-3 w-10 h-10 text-black hover:bg-black/10 rounded-full transition-colors flex items-center justify-center"
                             aria-label="Close"
                         >
-                            <span style={{ fontSize: 32, fontWeight: "bold" }}>
-                                ×
-                            </span>
+                            <X className="w-6 h-6" />
                         </button>
                     </div>
-                    <div className="flex flex-col md:flex-row justify-start items-center w-full h-svh overflow-hidden">
+                    <div className="flex flex-col md:flex-row justify-start items-center w-full h-svh overflow-y-scroll overflow-x-hidden">
                         {/* Side images */}
                         <div className="w-full h-fit flex flex-col md:flex-row justify-start items-center">
                             <div className="hidden md:flex md:flex-col h-[stretch] justify-between items-center gap-2 px-4 md:w-1/5 w-fit max-w-xl aspect-square">
@@ -148,7 +147,7 @@ function Works() {
                                 ))}
                             </div>
                             {/* Main image and details */}
-                            <div className="flex-1 flex flex-col md:flex-row items-center md:items-start gap-8 overflow-auto">
+                            <div className="max-w-full flex-1 flex flex-col md:flex-row items-center md:items-start gap-8 overflow-auto">
                                 <div
                                     className="relative w-full max-w-xl aspect-square flex-shrink-0 bg-cover bg-center"
                                     style={{

@@ -2,10 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Cousine-Regular';
+  src: url('/fonts/Cousine-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cousine-Bold';
+  src: url('/fonts/Cousine-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cousine-Regular', Arial, Helvetica, sans-serif;
+  font-weight: normal;
   overflow-x: hidden !important;
   overflow-y: hidden !important;
+}
+
+.font-bold {
+  font-family: 'Cousine-Bold', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.overflow-y-scroll {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+.overflow-y-scroll::-webkit-scrollbar { 
+  display: none;  /* Older Safari and Chromium */
 }
 
 @layer utilities {

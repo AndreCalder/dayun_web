@@ -24,13 +24,13 @@ function Contact() {
                 </div>
                 <Link
                     href="mailto:estudiodayun@gmail.com"
-                    className="text-xl lg:text-4xl my-6 mx-5 lg:mx-10 font-bold tracking-wide"
+                    className="text-xl lg:text-3xl my-6 mx-5 lg:mx-10 font-bold tracking-wide z-10 text-shadow-2xs text-shadow-white"
                 >
                     ESTUDIODAYUN@GMAIL.COM
                 </Link>
                 <Link
                     href="https://www.instagram.com/dayun/"
-                    className="text-xl lg:text-4xl my-6 mx-5 lg:mx-10 font-bold tracking-wide"
+                    className="text-xl lg:text-3xl my-6 mx-5 lg:mx-10 font-bold tracking-wide z-10 text-shadow-2xs text-shadow-white"
                 >
                     INSTAGRAM &gt;
                 </Link>
@@ -38,16 +38,16 @@ function Contact() {
             <Image
                 src="/Dayun_Face.png"
                 alt="About"
-                width={500}
-                height={500}
-                className="hidden lg:block lg:absolute bottom-0 right-[17%]"
+                width={450}
+                height={450}
+                className="hidden lg:block lg:absolute bottom-0 max-w-[350px] lg:max-w-[450px] right-[6%] xl:right-[14%]"
             />
             <Image
                 src="/Dayun_Face.png"
                 alt="About"
-                width={300}
-                height={300}
-                className="absolute lg:hidden bottom-0 right-0 left-0"
+                width={600}
+                height={600}
+                className="absolute max-w-96 sm:max-w-3/4 lg:hidden bottom-0 left-1/2 -translate-x-1/2"
             />
         </div>
     );

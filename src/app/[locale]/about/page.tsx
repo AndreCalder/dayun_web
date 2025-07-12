@@ -36,7 +36,7 @@ function About() {
     };
 
     return (
-        <div className="h-lvh w-svw grid grid-cols-2 py-16 lg:py-0 px-5 lg:px-20 relative">
+        <div className="h-svh w-svw grid grid-cols-2 my-16 lg:py-0 px-5 lg:px-20 relative overflow-y-scroll overflow-x-hidden">
             <div className="col-span-2 lg:col-span-1 flex flex-col justify-center">
                 <div className="container px-6">
                     <h1 className="text-xl lg:text-2xl underline underline-offset-8 pb-10">

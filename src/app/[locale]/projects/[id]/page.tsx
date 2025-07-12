@@ -66,8 +66,8 @@ function ProjectDetail() {
     }
 
     return (
-        <div className="h-svh w-full px-5 lg:px-20 pt-20 flex flex-col">
-            <div className="container mx-auto overflow-y-scroll">
+        <div className="h-svh w-full px-5 lg:px-20 py-20 flex flex-col">
+            <div className="container mx-auto overflow-y-scroll overflow-x-visible">
                 <div className="w-full grid grid-cols-2 pb-10">
                     <div className="col-span-2 lg:col-span-1">
                         <h1 className="text-3xl lg:text-5xl font-bold mb-6 text-left tracking-wide">
