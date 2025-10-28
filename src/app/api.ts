@@ -9,9 +9,9 @@ import {
 } from "@/lib/definitions";
 import axios from "axios";
 
-//https://dayun-437519.wl.r.appspot.com
+//
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL: "https://dayun-437519.wl.r.appspot.com",
     headers: {
         "Content-type": "application/json",
     },
