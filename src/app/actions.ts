@@ -28,3 +28,32 @@ export async function uploadImage(formData: FormData) {
     }/storage/v1/object/public/${bucket}/${encodeURI(path)}`;
   }
 }
+
+export async function uploadPDF(formData: FormData) {
+  const supabase = createClient(
+    process.env.SUPABASE_URL || "",
+    process.env.SUPABASE_ANON_KEY || ""
+  );
+
+  const file = formData.get('file') as File;
+  
+  if (!file) {
+    return "";
+  }
+
+  const bucket = "dayun";
+  const fileName = file.name.replace(/[^a-zA-Z0-9.-]/g, "_");
+  const { data, error } = await supabase.storage
+    .from(bucket)
+    .upload(`catalogs/${fileName}_${Date.now()}.pdf`, file);
+  
+  if (error) {
+    console.error("Error uploading PDF:", error);
+    return "";
+  } else if (data) {
+    let { path } = data;
+    return `${
+      process.env.SUPABASE_URL
+    }/storage/v1/object/public/${bucket}/${encodeURI(path)}`;
+  }
+}

@@ -3,12 +3,15 @@ import {
     WorkType,
     CoverType,
     AboutImageType,
+    AboutTextType,
     ProjectType,
+    CatalogType,
 } from "@/lib/definitions";
 import axios from "axios";
 
+//https://dayun-437519.wl.r.appspot.com
 const axiosInstance = axios.create({
-    baseURL: "https://dayun-437519.wl.r.appspot.com",
+    baseURL: "http://localhost:8080",
     headers: {
         "Content-type": "application/json",
     },
@@ -72,5 +75,36 @@ export const updateAboutImage = (payload: AboutImageType) =>
 
 export const deleteAboutImage = (id: string) =>
     axiosInstance.delete(`/about-images/${id}`);
+
+// About Texts API routes:
+
+export const getAboutTexts = () => axiosInstance.get("/about-texts/");
+
+export const getAboutTextByKey = (key: string) =>
+    axiosInstance.get(`/about-texts/key/${key}`);
+
+export const createAboutText = (payload: AboutTextType) =>
+    axiosInstance.post("/about-texts/", payload);
+
+export const updateAboutText = (id: string, payload: AboutTextType) =>
+    axiosInstance.put(`/about-texts/${id}`, payload);
+
+export const deleteAboutText = (id: string) =>
+    axiosInstance.delete(`/about-texts/${id}`);
+
+// Catalog API routes:
+
+export const getCatalogs = () => axiosInstance.get("/catalogs/all");
+
+export const getCatalogsByType = (type: "paintings" | "illustrations") =>
+    axiosInstance.get(`/catalogs/type/${type}`);
+
+export const createCatalog = (payload: CatalogType) =>
+    axiosInstance.post("/catalogs/add", payload);
+
+export const getCatalog = (id: string) => axiosInstance.get(`/catalogs/${id}`);
+
+export const deleteCatalog = (id: string) =>
+    axiosInstance.delete(`/catalogs/${id}`);
 
 export default axiosInstance;

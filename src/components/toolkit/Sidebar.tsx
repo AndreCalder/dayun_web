@@ -14,6 +14,7 @@ import {
     BookCheck,
     ImageIcon,
     ShoppingBag,
+    FileText,
 } from "lucide-react";
 
 import { Command, CommandGroup, CommandList } from "@/components/ui/command";
@@ -50,6 +51,11 @@ const Sidebar: React.FC<sidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
                     icon: <ImageIcon className="h-5 w-5" />,
                 },
                 {
+                    link: `/admin/about-texts`,
+                    text: "Textos About",
+                    icon: <BookText className="h-5 w-5" />,
+                },
+                {
                     link: `/admin/obras`,
                     text: "Obras",
                     icon: <ImageIcon className="h-5 w-5" />,
@@ -58,6 +64,11 @@ const Sidebar: React.FC<sidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
                     link: `/admin/projects`,
                     text: "Proyectos",
                     icon: <BookCheck className="h-5 w-5" />,
+                },
+                {
+                    link: `/admin/catalog`,
+                    text: "Catálogos",
+                    icon: <FileText className="h-5 w-5" />,
                 },
             ],
         },

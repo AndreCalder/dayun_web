@@ -80,3 +80,22 @@ export type AboutImageType = {
     img_url: string;
     order?: number;
 };
+
+export type CatalogType = {
+    _id?: ObjectId;
+    title: string;
+    description?: string;
+    pdf_url: string;
+    type: "paintings" | "illustrations";
+    created_at?: MongoDate;
+};
+
+export type AboutTextType = {
+    _id?: ObjectId;
+    key: string;
+    texts: {
+        [locale: string]: string;
+    };
+    date_added?: MongoDate;
+    date_modified?: MongoDate;
+};
